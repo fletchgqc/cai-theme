@@ -1,0 +1,26 @@
+#header { display:none }
+#sidebar-left { display:none }
+#comments { display:none }
+#print-logo { display:none }
+#footer-wrapper { display:none }
+#videoplayer { display:none }
+.testimony-video-divider { display:none }
+.view-content { display:none }
+#related-content { display:none }
+
+body { 
+	background: white; 
+	color: black;
+}
+
+#page {
+	width: auto; 
+	padding: 0; 
+	border: 0;
+	float: none !important;
+	background: transparent;
+ }
+
+.testimony-pics, .testimony-pics img {
+	width: 150px;
+}

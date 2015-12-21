@@ -1,0 +1,30 @@
+name = CAI 2012
+description = The Christian Assemblies International website theme, designed in 2008 and updated in 2012 for D7
+version = 1.0
+; last major update: April 2012
+
+core = 7.x
+engine = phptemplate
+
+features[] = logo
+features[] = name
+features[] = comment_user_picture
+features[] = main_menu
+features[] = secondary_menu
+
+; Qtip tooltips for scripture popups
+; This stylesheet must come before ours so that we can override styles
+stylesheets[all][] = qtip/jquery.qtip-modified.css
+scripts[] = qtip/jquery.qtip.min.js
+scripts[] = qtip/qtip-scriptures.js
+
+stylesheets[all][] = style.css
+stylesheets[all and (min-width: 1000px)][] = style-desktop.css
+stylesheets[all and (max-width: 999px)][] = style-mobile.css
+stylesheets[all and (min-width: 1000px)][] = css/testimony-desktop.css
+stylesheets[all and (max-width: 999px)][] = css/testimony-mobile.css
+stylesheets[all and (min-width: 1000px)][] = css/theme_sheet-desktop.css
+stylesheets[all and (max-width: 999px)][] = css/theme_sheet-mobile.css
+stylesheets[all and (min-width: 1000px)][] = css/vocabulary_overview-desktop.css
+stylesheets[all and (max-width: 999px)][] = css/vocabulary_overview-mobile.css
+stylesheets[print][] = print.css

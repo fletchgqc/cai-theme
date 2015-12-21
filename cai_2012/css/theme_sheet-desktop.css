@@ -1,0 +1,117 @@
+/* styles associated with the link to the PDF at the top-right of the page */
+div#pdf-link {
+  float: right;
+  margin: 0.5em 0 1.5em 1.5em;
+  padding: 17px 17px 20px 0;
+  border: 1px dotted #aaa;
+}
+
+div#standalone-pdf-link {
+  text-align: right;
+  margin-bottom: 1em;
+  
+}
+
+div#pdf-link img, div#standalone-pdf-link img {
+/* adobe stipulates that there needs to be a space on either side of the icon equivalent to the height of the icon */
+  margin: 0 17px;
+}
+
+a#pdf-img-link {
+  text-decoration: none;
+}
+
+/* these classes mark text that is underlined in the PDF version of the sheet */
+.ts-underlined, .ts-underline {
+   font-weight: bold;
+}
+
+/*
+ * Styles specific to individual sheets 
+ */
+
+/* 
+ * Note on table formatting:
+ * IE7 Supports :first-child and direct descendant (>) and sibling (+) but not
+ * :last-child.  Threfore sometimes slightly hacky rules are used to ensure IE7
+ * support where :last-child should have been used.
+ */
+#a1001-table td {
+  padding-right: 2em;
+}
+
+#a1001-table td:first-child+td+td {
+  padding-left: 4em;
+}
+
+#a1002-table td:first-child {
+  text-align: right;
+  padding-left: 0;
+}
+
+#a1002-table td {
+  padding: 0.6em 0.4em;
+  margin: 0;
+}
+
+#a2037-table {
+  border-collapse: true;
+  border: 2px solid #000;
+}
+
+#a2037-table td {
+  border: 1px solid #000;
+  padding: 0.4em 0.5em;
+}
+
+/* left column, not including the main heading cell */
+#a2037-table tr+tr>td:first-child {
+  white-space: nowrap;
+  padding-right: 2em;
+}
+
+#a2038-table, #b0027-table {
+  margin-left: auto;
+  margin-right: auto;
+  border-top: 4px solid #000;
+  border-bottom: 4px solid #000;
+}
+
+#a2038-table td, #b0027-table td {
+  text-align: center;
+  vertical-align: bottom;
+  padding: 0.5em 2em;
+  width: 25%;
+}
+
+/* first and last rows bold */
+#a2038-table tr:first-child, #a2038-table tr+tr+tr, #b0027-table tr:first-child, #b0027-table tr+tr+tr {
+  font-weight: bold;
+}
+
+/* third column */
+#c0165-table td:first-child+td+td {
+  padding-left: 6em;
+}
+
+#d0010-table1, #d0010-table2 {
+/* the first two rules cause all cells in a column to be the same width */
+  table-layout: fixed;
+  width: 100%;
+  border: 2px solid #000;
+}
+
+#d0010-table1 {
+  margin-bottom: 0;
+}
+
+#d0010-table1 td {
+  text-align: center;
+  vertical-align: bottom;
+  border: 2px solid #000;
+}
+
+#d0010-table2 {
+  margin-top: 0;
+  border-top: 0
+}
