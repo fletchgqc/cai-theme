@@ -1,5 +1,17 @@
+  <div id="mobile-menu-container">
+    <div id="mobile-language"></div>
+    <div id="mobile-menu"></div>
+  </div>
 
-  <div id="page">
+  <nav class="offcanvas transition">
+    <?php if ($main_menu): ?>
+      <div id="primary" class="clear-block">
+        <?php print theme('links__system_main_menu', array('links' => $main_menu, 'attributes' => array('id' => 'main-menu', 'class' => array('links', 'inline', 'clearfix')))); ?>
+      </div>
+    <?php endif; ?>
+  </nav>
+
+  <div id="page" class="page transition">
 
     <div id="header"><div class="section clearfix">
       <div id="logo-title">
@@ -115,3 +127,26 @@
     </div>
 
   </div> <!-- /#page -->
+
+<script>
+  jQuery('#mobile-language').click(function(e) {
+    if(jQuery("#language-select-form").css("display") == "none") {
+      jQuery("#language-select-form").css("display", "block");
+    } else {
+      jQuery("#language-select-form").css("display", "none");
+    }
+  });
+  jQuery('#mobile-menu').click(function (e) {
+    jQuery('body').toggleClass('active');
+    e.preventDefault();
+  });
+  jQuery(".page").click(function() {
+    if(jQuery("body").hasClass("active")) {
+      jQuery("body").toggleClass("active");
+    }
+  });
+  jQuery("#mobile-menu-container").height(jQuery("#header").height());
+  jQuery(window).resize( function() {
+    jQuery("#mobile-menu-container").height(jQuery("#header").height());
+  });
+</script>

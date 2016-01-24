@@ -29,7 +29,6 @@
  * Px is an absolute measure of pixels on screen. Em is related to text size. If in doubt use em.  
  */
 body {
-	background: #02029c url(images/page-bg.png) repeat-y top;
 	font-family: verdana, arial, sans-serif;
 	padding: 0;
 	margin: 0;

@@ -28,6 +28,10 @@
  * 
  * Px is an absolute measure of pixels on screen. Em is related to text size. If in doubt use em.  
  */
+body {
+  background: #02029c url(images/page-bg.png) repeat-y top;
+}
+
 #page {
   width: 1000px; 
   margin: 0 auto;
@@ -46,6 +50,10 @@
 }
 
 #banner-mobile {
+  display: none;
+}
+
+#mobile-language, #mobile-menu, #mobile-menu-container {
   display: none;
 }
 
@@ -239,4 +247,8 @@ hr#contact-divider {
   /* note coloured border-bottom used instead of padding as weird ie7 bug was changing the colour of the padded area when you scroll down */
   padding: 0.7em 20px 1.5em 16px; /*30px;*/
   margin-left: 14px;
+}
+
+.offcanvas {
+  display: none;
 }
