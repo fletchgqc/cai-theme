@@ -180,19 +180,8 @@ drupal_add_css(drupal_get_path('theme', 'cai_2012') . '/css/front-page-mobile.cs
 
 </div>
 
-<!-- Script to make featured items without image work -->
+<!-- TODO: move this to a separated file -->
 <script>
-  jQuery("#featured .item").each(function() {
-    jQuery(this).click();
-
-    // Workaround to fix css problem
-    var ele = jQuery(this).find("img.image-left");
-    if(ele.length == 0) {
-      jQuery(this).find(".heading").css("left", "10px");
-      jQuery(this).find(".node h2").css("left", "0px");
-    }
-  });
-
   function showFeature(elem) {
     var item = jQuery(elem).parent();
     jQuery(elem).hide();
@@ -206,4 +195,26 @@ drupal_add_css(drupal_get_path('theme', 'cai_2012') . '/css/front-page-mobile.cs
     jQuery(item).find("#arrow-down").show();
     jQuery(item).find(".field p").hide();
   }
+
+  function organizeFeaturedArticles() {
+    var featuredTestimonyPositionElement = jQuery("#content-front > .field > .field-items > .field-item > p:nth-child(2)");
+    var featuredBibleStudyPositionElement = jQuery("#content-front > .field > .field-items > .field-item > h2:eq(0)");
+    var featuredVideoPositionElement = jQuery("#content-front > .field > .field-items > .field-item > h2:eq(1)");
+    featuredTestimonyPositionElement.before("<div class='featured'><div class='item'>" + jQuery(".item:nth-child(1)").html() + "</div></div>");
+    featuredBibleStudyPositionElement.before("<div class='featured'><div class='item'>" + jQuery(".item:nth-child(2)").html() + "</div></div>");
+    featuredVideoPositionElement.before("<div class='featured'><div class='item'>" + jQuery(".item:nth-child(3)").html() + "</div></div>");
+    jQuery(".featured .item").each(function() {
+      //jQuery(this).click();
+
+      // Workaround to fix css problem
+      // It won't be needed anymore since the idea is to have image for all the featured articles!! TODO: delete this code after confirmation!
+      var ele = jQuery(this).find("img.image-left");
+      if(ele.length == 0) {
+        jQuery(this).find(".heading").css("left", "10px");
+        jQuery(this).find(".node h2").css("left", "0px");
+      }
+    });
+  }
+
+  organizeFeaturedArticles();
 </script>

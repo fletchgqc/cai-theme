@@ -124,9 +124,9 @@
 }
 
 .offcanvas {
-  float: left;
-  margin-left: -100%;
-  width: 300px;
+  float: right;
+  margin-right: -100%;
+  width: 200px;
   z-index: 3;
   height: 100%;
   padding: 0.6em 0;
@@ -140,10 +140,7 @@
 .offcanvas ul li a:hover { background-color:#ffaa00; }
 
 .transition {
-  /*transition: width ease-in-out 0.28s, background linear 0.1s;*/
   transition: .2s margin ease;
-  display: block;
-  position: relative;
 }
 
 .page {
@@ -154,10 +151,7 @@
 }
 
 body { background-color: none; }
-body.active .offcanvas { margin-left: 0; }
-body.active .page { margin-right: -100%; border-left: 2px solid #ffaa00; }
+body.active .offcanvas { margin-right: -2px; right: -2px; position: fixed; }
+body.active .page { margin-left: -200px; border-right: 2px solid #ffaa00; }
 body.active { background-color: #ff6600; overflow: hidden; }
-
-.nav-collapsed #page {
-  transform: translate(0px, 0);
-}
+body.active #mobile-menu, body.active #mobile-language { right: 200px; }

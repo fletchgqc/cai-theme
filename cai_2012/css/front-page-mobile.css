@@ -16,7 +16,7 @@
     padding: 0px;
   }
 
-  #content-front img, #content-front span {
+  #content-front p img, #content-front span {
     width: 100% !important;
     height: auto !important;
   }
@@ -47,19 +47,23 @@
   }
 
   #featured {
+    display: none;
+  }
+
+  .featured {
     float: right;
     width: 100%;
     display: block;
   }
 
-  #featured div.item {
+  .featured div.item {
     background: #ff6600; /* #f4efaa;*/
     margin-bottom: 1em;
     position: relative;
     min-height: 70px;
   }
 
-  #featured div.item h2 {
+  .featured div.item h2 {
     position: absolute;
     font-size: 1.3em;
     margin: 0;
@@ -67,37 +71,37 @@
     color: #fff;
   }
 
-  #featured div.item .heading {
+  .featured div.item .heading {
     left: 120px;
     top: 10px;
   }
 
-  #featured h2.heading {
+  .featured h2.heading {
     position: absolute;
     float: right;
     padding: 0.8em 0.1em 0.3em 0.6em;
   }
 
-  #featured div.node {
+  .featured div.node {
     border-bottom: none;
   }
 
-  #featured div.node h2 {
+  .featured div.node h2 {
     top: 30px;
     left: 110px;
     float: left;
     padding: 0.8em 0.1em 0.3em 0.6em;
   }
 
-  #featured div.node #content {
+  .featured div.node #content {
     display: block;
   }
 
-  #featured a {
+  .featured a {
     text-decoration: none;
   }
 
-  #featured h2 a {
+  .featured h2 a {
     color: #fff;
     padding-top: 0.2em;
     text-decoration: none;
@@ -105,24 +109,24 @@
   }
 
   /* for the temporary upgrade in progress box */
-  #featured h2.visitors {
+  .featured h2.visitors {
     color: #ba0915;
   }
 
-  #featured img.image-left {
+  .featured img.image-left {
     float: left;
     display: block;
     width: 100px;
     margin: 0 10px 0px 10px;
   }
 
-  #featured p {
+  .featured p {
     margin: 0;
     display: none;
     padding-top: 6px;
   }
 
-  #featured .field p {
+  .featured .field p {
     margin: 0;
     padding: 10px;
     display: none;
@@ -131,14 +135,14 @@
   }
 
   /* for the FAQ box */
-  #featured ul {
+  .featured ul {
   	margin-left: 0;
   	padding-left: 0em;
   	text-decoration: none;
   	list-style: none;
   }
 
-  #featured li {
+  .featured li {
   	margin-bottom: 0.7em;
   }
 
