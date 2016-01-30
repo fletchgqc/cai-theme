@@ -150,8 +150,8 @@
   background: url(images/page-bg.png) repeat-y top;
 }
 
-body { background-color: none; }
-body.active .offcanvas { margin-right: -2px; right: -2px; position: fixed; }
+body { background-color: none; overflow-x: hidden; }
+body.active .offcanvas { margin-right: -2px; right: -2px; position: fixed; display: block;}
 body.active .page { margin-left: -200px; border-right: 2px solid #ffaa00; }
 body.active { background-color: #ff6600; overflow: hidden; }
 body.active #mobile-menu, body.active #mobile-language { right: 200px; }
