@@ -1,0 +1,553 @@
+/* 
+ * General browser support guidelines:
+ * - Should look good in Firefox and IE7.
+ * - Should look reasonable IE6.  IE6 can be ignored as long as it doesn't
+ *   render the site absolutely horribly.  
+ * - Information should be legible in other browsers, even if it looks horrible.
+ * - Assume modern non-IE browsers will be standards-compliant and will render
+ *   pages in a similar fashion to Firefox, therefore we won't explicitly test.
+ *
+ * Basics of CSS spacing
+ * Border: the line around an element (if any)
+ * Margin: spacing between the border and other elements on the page (i.e. spacing outside your item)
+ * Padding: spacing between the border and the contents of the element (i.e. spacing inside your item)
+ *
+ * You can do this:      
+ * padding-top: 5px;
+ * padding-right: 6px;
+ * padding-bottom: 7px;
+ * padding-left: 8px;
+ * 
+ * Or do the same with this shortcut:
+ * padding: 5px 6px 7px 8px;
+ * The shorcut follows the order North, East, South, West i.e. top, right, bottom, left
+ * 
+ * Other common shortcut:
+ * padding: 8px 5px;
+ * This means padding top and bottom = 8px, padding left and right = 5px.
+ * 
+ * Px is an absolute measure of pixels on screen. Em is related to text size. If in doubt use em.  
+ */
+body {
+	font-family: verdana, arial, sans-serif;
+	padding: 0;
+	margin: 0;
+	font-size: 75%;
+}
+
+/* Remove background image in CKEditor */
+body.cke_editable {
+	background: #f0f0ff;
+}
+
+img {
+	border: 0;
+	margin: 0;
+	padding: 0;
+	display: inline;
+}
+
+/* Both IE7 & FF3 use margin-bottom, no padding on headings by default */
+h1, h2, h3, h4, h5 {
+  line-height: 1.4em;
+	color: #000066;
+  font-weight: bold;
+}
+
+h1 {
+	font-size: 1.85em;
+  margin: 0.5em 0;
+}
+
+h2 {
+	font-size: 1.55em;
+	margin: 0.5em 0;
+	padding-top: 0.2em;
+}
+
+h3 {
+	font-size: 1.35em;
+	margin: 0.4em 0;
+	padding-top: 0.1em;
+}
+
+h4 {
+  font-size: 1.2em;
+  margin: 0.3em 0;
+}
+
+h5 {
+	font-size: 1em;
+  margin: 0.2em 0;
+}
+
+h2 a, h3 a, h4 a {
+  text-decoration: none;
+  color: #000066;
+}
+
+p {
+  margin-top: 0;
+  margin-bottom: 1.3em;
+}
+
+a {
+	color: #3333ff;
+}
+
+a:visited {
+  color: #000066;
+}
+
+/* all lists in the actual content need a bit more spacing between items */
+#content li {
+  margin-bottom: 0.3em;
+}
+
+/* default on most browsers but enforce anyway */
+cite {
+  font-style: italic;
+}
+
+q.bibletxt {
+  color: #ba0915;
+}
+
+cite.bibleref {
+  color: #ba0915;
+  font-style: normal;
+  font-weight: bold;
+  border-bottom: 1px dashed #ba0915;
+  text-transform: uppercase;
+}
+
+:lang(ru) cite.bibleref {
+  text-transform: none;
+}
+
+q:before, q:after {
+  content: "";
+}
+
+.standalone-text {
+  font-weight: bold;
+  text-align: center;
+  margin: 1em 0 1.5em 0;
+}
+
+img.standalone-image {
+  display: block;
+}
+
+.standalone-image {
+  text-align: center;
+  margin: 1.5em auto;
+}
+
+.overview {
+  border: 1px solid #000066;
+  background-color: #d8d8ff;
+  padding: 1em 1.6em;
+}
+
+.attention-box {
+  background-color: #f8ce7d;
+  border: 1px solid #ff9933;
+  padding: 0.7em 1em;
+}
+
+.moreinfo {
+  border-bottom: 1px dotted #000;
+}
+
+.image-left {
+  float: left;
+  margin: 5px 25px 5px 0;
+  text-align: center;
+}
+
+.image-right {
+  float: right;
+  margin: 5px 0 5px 25px;
+  text-align: center;
+}
+
+/* this rule is for picture captioning - div is not valid so we use span */
+span.image-left, span.image-right {
+  display: block;
+}
+
+.caption {
+	border-bottom: 1px solid #ddd; /* dotted #aaa; */
+	padding-bottom: 0.3em;
+  display: block;
+}
+
+.read-more a {
+	text-decoration: none;
+}
+
+ul.links li {
+  padding: 0 1em 0 0;
+}
+
+ul.links li:last-child {
+  padding: 0;
+}
+
+ul.links a img {
+  text-decoration: underline;  
+}
+
+blockquote.highlight-left, blockquote.highlight-right, aside.pull-left, aside.pull-right {
+  font-size: 1.8em;
+  line-height: 1.4em;
+  width: 240px;
+  margin: 0.3em 1.5em 0.3em 0;
+  padding: 0.7em 0;
+  float: left;
+  text-align: left;
+  font-weight: 600;
+  background: url('images/quotation-mark-left.png') no-repeat, url('images/quotation-mark-right.png') 100% 100% no-repeat;
+  text-align: center;
+  color: #445499;
+  font-family: 'Amaranth', cursive;
+}
+
+blockquote.highlight-right, aside.pull-right {
+  float: right;
+  margin-right: 0;
+  margin-left: 1.5em;
+}
+
+blockquote.highlight p {
+  padding: 0;
+  margin: 0;
+  line-height: 1.3em;
+}
+
+/* Use appropriate background quotation mark images for certain langagues */
+:lang(de) blockquote.highlight-left, :lang(de) blockquote.highlight-right, :lang(de) aside.pull-left, :lang(de) aside.pull-right {
+  background-image: url('images/quotation-mark-right.png'), url('images/quotation-mark-left.png');
+}
+:lang(fr) aside.pull-left, :lang(fr) aside.pull-right, :lang(el) aside.pull-left, :lang(el) aside.pull-right, :lang(ru) aside.pull-left, :lang(ru) aside.pull-right,
+:lang(fr) blockquote.highlight-left, :lang(fr) blockquote.highlight-right, :lang(el) blockquote.highlight-left, :lang(el) blockquote.highlight-right, :lang(ru) blockquote.highlight-left, :lang(ru) blockquote.highlight-right {
+  background-image: url('images/quotation-mark-left-angular.png'), url('images/quotation-mark-right-angular.png');
+}
+
+#related-content {
+  margin-top: 25px;
+}
+
+#comments {
+  margin-top: 30px;
+}
+
+#footer {
+  background-color: #ff9933;
+  color: #fff;
+  font-size: 0.75em;
+  padding: 1em;
+  text-align: center;
+}
+
+#footer a {
+  color: #fff;
+}
+
+.large-font {
+  font-size: 1.3em;
+  line-height: 1.4em; 
+}
+
+.narrow-box {
+  max-width: 35em;
+  margin: 0 auto;
+}
+
+.narrow-box, .wide-box {
+  border: 2px solid #000; 
+  padding: 1em 1.8em;
+  margin-bottom: 1.3em;
+}
+
+.top-bottom-border {
+  border: solid #000;
+  border-width: 1px 0;
+  padding: 0.8em 0;
+  line-height: 4em;
+}
+
+hr.divider {
+  display: block;
+  width: 50%;
+  color: #aaa;
+  height: 1px;
+  margin: 2.5em auto;
+}
+
+ul.links {
+  clear: both;
+  /* margin-top: 1em; - was interfering with left nav */
+}
+
+.box-left {
+  border: 2px solid #000;
+  width: 45%;
+  float: left;
+  margin: 0 1.5em 1em 0;
+  padding: 0.7em 1em;
+  background-color: #ddd;
+}
+
+.box-right {
+  border: 2px solid #000;
+  width: 45%;
+  float: right;
+  margin: 0 0 1em 1.5em;
+  padding: 0.7em 1em;
+  background-color: #ddd;
+}
+
+.box-left p:last-child, .box-right p:last-child {
+  margin-bottom: 0;
+}
+
+/* Styles for notification messages like comment queueing and errors.
+ * Copied from the Garland theme */
+.messages {
+  background-color:#FFFFFF;
+  border:1px solid #B8D3E5;
+}
+
+.messages {
+  margin:0.75em 0;
+  padding:0.5em 1em;
+}
+
+div.status {
+  border-color:#C7F2C8;
+  color:#119011;
+  background-color:#EEFFEE;
+}
+  
+.warning {
+  color:#E09010;
+}
+
+div.warning {
+  border:1px solid #F0C020;
+}
+
+div.error, tr.error  {
+  background-color:#FFCCCC;
+  color:#A30000;
+}
+
+div.error {
+  border:1px solid #DD7777;
+}
+ 
+
+/* study resources */
+table {
+  margin-top: 1em;
+  margin-bottom: 2em;
+}
+
+/* override drupal default style */
+tbody {
+	border: 0;
+}
+
+tr {
+  vertical-align: top;
+}
+
+td {
+  padding: 0.2em 0.3em;
+}
+
+table.grid {
+  border-collapse: true;
+  border: 2px solid #000;
+}
+
+table.grid td {
+  border: 1px solid #000;
+}
+
+/* Make the full theme sheet list view look a bit nicer */
+.view-theme-sheets-in-category table {
+  width: 70%;
+}
+
+.view-theme-sheets-in-category td:first-child+td {
+  text-align: right;
+}
+
+.view-theme-sheets-in-category th:first-child+th {
+  text-align: right;
+  padding-right: 0.2em;
+}
+
+/* Styles for the tables with scriptures on the left and explanations on the right.
+   Mainly used in the theme sheets. */
+table.scripture td {
+  padding: 0.6em 0.2em;
+  margin: 0;
+}
+
+table.scripture td:first-child {
+  width: 25%;
+  padding-left: 0;
+}
+
+table.scripture td:last-child {
+  padding-right: 0
+}
+
+
+table.date td {
+  padding: 0.4em 0.1em;
+  margin: 0;
+}
+
+table.date td:first-child {
+  width: 12%;
+}
+
+.clear-both {
+  clear: both;
+}
+
+/* 
+ * Styles specific to the front page
+ */
+/* satellite groups box */
+div.satellite {
+  border: 5px double red;
+  padding: 0.5em 1em 0.2em 1em;
+  margin: 2.5em 0;
+}
+
+div.satellite h2 {
+  line-height: 1.5em;
+  margin-bottom: 1em;
+}
+
+/* 
+ * Styles specific to the About Us section
+ */
+/* pictures of the Kinnanes in Our History */
+div#our-history-pics {
+  margin: 1.5em auto 0 auto;
+}
+
+div#our-history-pics div.image-left:first-child {
+  margin-left: 10%;
+  margin-right: 8%;
+}
+
+div#our-history-pics+p {
+  clear: both;
+}
+
+/* "With Sincere Appreciation" credits box */
+div.credits {
+  border: 5px double red;
+  padding: 1em;
+  margin: 4em 0;
+}
+
+div.credits h2 {
+  margin-top: 0.2em;
+  margin-bottom: 0em;
+}
+
+div.credits h2+p {
+  text-indent: 19.3em;
+}
+
+/* hacky way of addressing the last paragraph as :last-child doesn't work in IE7 */
+div.credits p+p+p {
+  margin-bottom: 0;
+}
+
+/* 
+ * Styles specific to the Sunday School section
+ */
+table.sus-teaching-plan {
+  border-collapse: true;
+  border: 2px solid #000;  
+}
+
+table.sus-teaching-plan td {
+  border: 1px solid #000;
+}
+
+table.sus-teaching-plan td:first-child {
+  width: 25%;
+  font-weight: bold;
+}
+
+/* 
+ * Testimonies
+ */
+.video-icon {
+  margin-left: 8px;
+  vertical-align: -2px;
+}
+
+/* Hide video icon on front page featured */
+#featured .video-icon {
+	display: none;
+}
+
+#videoplayer {
+  margin: 10px auto 30px;
+}
+
+/*
+ * Video testimonies page
+ */
+/* This will only apply to teasers */
+.views-row .video-thumbnail-teaser {
+  width: 350px;
+}
+
+.views-row-odd .video-thumbnail-teaser {
+  float: left;
+  margin-right: 2em;
+}
+
+.views-row-even .video-thumbnail-teaser {
+  float: right;
+  margin-left: 2em;
+}
+
+/* Qtip scripture pop-ups. See also code in <theme>/qtip/*.css */
+.ui-tooltip-scripture {
+  background-color: #F8CE7D;
+	border: 4px solid #BA0915;
+	padding: 0.5em 0.8em;
+  font-size:1.1em;
+  line-height: 1.4;
+}
+
+/*
+ * Makes the l10n_client translation window look a bit nicer.
+ */
+#l10n-client.hidden, #l10n-client.hidden .labels {
+  background: transparent;
+}
+
+#l10n-client.hidden .toggle {
+  border: 2px outset silver;
+  border-radius: 5px;
+}
+
+/* HTML5 compatibility with older browsers */
+aside {
+	display: block;
+}

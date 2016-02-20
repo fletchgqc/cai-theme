@@ -1,0 +1,157 @@
+/* 
+ * General browser support guidelines:
+ * - Should look good in Firefox and IE7.
+ * - Should look reasonable IE6.  IE6 can be ignored as long as it doesn't
+ *   render the site absolutely horribly.  
+ * - Information should be legible in other browsers, even if it looks horrible.
+ * - Assume modern non-IE browsers will be standards-compliant and will render
+ *   pages in a similar fashion to Firefox, therefore we won't explicitly test.
+ *
+ * Basics of CSS spacing
+ * Border: the line around an element (if any)
+ * Margin: spacing between the border and other elements on the page (i.e. spacing outside your item)
+ * Padding: spacing between the border and the contents of the element (i.e. spacing inside your item)
+ *
+ * You can do this:      
+ * padding-top: 5px;
+ * padding-right: 6px;
+ * padding-bottom: 7px;
+ * padding-left: 8px;
+ * 
+ * Or do the same with this shortcut:
+ * padding: 5px 6px 7px 8px;
+ * The shorcut follows the order North, East, South, West i.e. top, right, bottom, left
+ * 
+ * Other common shortcut:
+ * padding: 8px 5px;
+ * This means padding top and bottom = 8px, padding left and right = 5px.
+ * 
+ * Px is an absolute measure of pixels on screen. Em is related to text size. If in doubt use em.  
+ */
+/*#page {
+  width: 100%; 
+  height: 100%;
+  position: relative;
+  padding: 0;
+  /*background: url(images/background-shading.png) repeat-y;
+}*/
+
+#banner {
+  display: none;
+}
+
+#banner-mobile {
+  display: block;
+}
+
+#contact-globe {
+  display: none;
+}
+
+#search-box {
+  display: none;
+}
+
+#language-select-form, #language-select-form select {
+  display: none;
+  float: left;
+  width: 100%;
+  height: 40px;
+}
+
+#language-select-form select {
+  display: block;
+}
+
+#mobile-menu-container {
+  position: fixed;
+  width: 100%;
+  z-index: 2;
+}
+
+#mobile-language, #mobile-menu {
+  width: 14%;
+  height: 50%;
+  background-color: red;
+  opacity: 0.5;
+  cursor: pointer;
+  position: absolute;
+  top: 0;
+  right: 0;
+  z-index: 100;
+}
+
+#mobile-menu {
+  background-color: green;
+  top: 50%;
+}
+
+#current-lang-flag {
+  display: none;
+}
+
+#musicbutton {
+  display: none;
+}
+
+#topnav {
+  display: none;
+}
+
+#container {
+  /*background: url("images/left-menu-bg.png") repeat-y left;*/
+  /* test background: #ff0000; */
+  border-bottom: 4px solid #ba0915;
+}
+
+#sidebar-left {
+  display: none;
+}
+
+#main { /* everything except top menu, left menu and footer */
+  background: #f0f0ff; /* image to be included here url(images/; */
+  float: left;
+  width: 100%;
+  line-height: 1.5em;
+}
+
+#logo-title {
+  position: relative;
+}
+
+#logo-title img {
+  width: 100%;
+}
+
+.offcanvas {
+  float: right;
+  margin-right: -100%;
+  width: 200px;
+  z-index: 3;
+  height: 100%;
+  padding: 0.6em 0;
+  border: none;
+  background-color: #ff6600;
+}
+
+.offcanvas ul { list-style: none; padding: 0px; margin: 0px; text-align: left; font-weight: normal; }
+.offcanvas ul li { text-align: left; display: block; padding: 0;}
+.offcanvas ul li a { display: block; text-decoration: none; border-bottom: 1px solid #ffaa00; color: #ffffff; padding: 12px; }
+.offcanvas ul li a:hover { background-color:#ffaa00; }
+
+.transition {
+  transition: .2s margin ease;
+}
+
+.page {
+  float: left;
+  margin-left: 0;
+  width: 100%;
+  background: url(images/page-bg.png) repeat-y top;
+}
+
+body { background-color: none; overflow-x: hidden; }
+body.active .offcanvas { margin-right: -2px; right: -2px; position: fixed; display: block;}
+body.active .page { margin-left: -200px; border-right: 2px solid #ffaa00; }
+body.active { background-color: #ff6600; overflow: hidden; }
+body.active #mobile-menu, body.active #mobile-language { right: 200px; }

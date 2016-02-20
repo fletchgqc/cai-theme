@@ -1,0 +1,46 @@
+/* Styles for the boxes which highlight a few nodes from each taxonomy term */
+.term-highlight-left, .term-highlight-right {
+  background: url(../images/term-highlight-bottom.png) bottom no-repeat;
+  width: 360px;
+  margin-top: 10px;
+  margin-bottom: 20px;
+  padding-bottom: 8px;
+}
+
+.term-highlight-left {
+  clear: both;
+  float: left;
+}
+
+.term-highlight-right {
+  clear: right;
+  float: right;
+}
+
+.term-highlight-left .view-content, .term-highlight-right .view-content {
+  border: 1px solid #01019a;
+  border-bottom: none;
+  padding: 1.2em 0.8em 5px; 
+}
+
+.term-highlight-left ul, .term-highlight-right ul {
+  margin-bottom: 0;
+  color: #000066; /* changes colour of list bullets */
+}
+
+.term-highlight-left h2, .term-highlight-right h2 {
+  font-size: 1.5em;
+  padding: 0.4em 0.7em;
+  background: #f0f0ff url(../images/term-highlight-top.png) 0 0 no-repeat;
+  margin: 0;
+}
+
+.term-highlight-left h2 a, .term-highlight-left ul a, .term-highlight-right h2 a, .term-highlight-right ul a {
+	text-decoration: none;
+}
+
+.term-highlight-left .more-link, .term-highlight-right .more-link {
+  border-left: 1px solid #01019a;
+  border-right: 1px solid #01019a;
+  padding-right: 1em;
+}

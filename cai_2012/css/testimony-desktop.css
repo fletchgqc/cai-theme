@@ -1,0 +1,30 @@
+p.testimony-author {
+  margin-bottom: 2em;
+  font-size: 1.2em;
+  font-weight: bold;
+}
+
+#testimonyvideo {
+  width: 100%;
+  text-align: center;
+}
+
+hr.testimony-video-divider {
+  margin-top: 15px;
+  margin-bottom: 30px;
+}
+
+.testimony-pics {
+  float: left;
+  width: 300px;
+  margin: 0 20px 10px 0px;
+  text-align: center;
+}
+
+.testimony-pics img {
+  margin-top: 20px;
+}
+
+.testimony-pics img.first {
+  margin-top: 0;
+}
