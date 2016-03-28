@@ -64,7 +64,7 @@
 }
 
 #mobile-menu-container {
-  position: fixed;
+  position: absolute;
   width: 100%;
   z-index: 2;
 }
@@ -132,6 +132,7 @@
   padding: 0.6em 0;
   border: none;
   background-color: #ff6600;
+  display: none;
 }
 
 .offcanvas ul { list-style: none; padding: 0px; margin: 0px; text-align: left; font-weight: normal; }

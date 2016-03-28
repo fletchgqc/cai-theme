@@ -127,26 +127,3 @@
     </div>
 
   </div> <!-- /#page -->
-
-<script>
-  jQuery('#mobile-language').click(function(e) {
-    if(jQuery("#language-select-form").css("display") == "none") {
-      jQuery("#language-select-form").css("display", "block");
-    } else {
-      jQuery("#language-select-form").css("display", "none");
-    }
-  });
-  jQuery('#mobile-menu').click(function (e) {
-    jQuery('body').toggleClass('active');
-    e.preventDefault();
-  });
-  jQuery(".page").click(function() {
-    if(jQuery("body").hasClass("active")) {
-      jQuery("body").toggleClass("active");
-    }
-  });
-  jQuery("#mobile-menu-container").height(jQuery("#header").height());
-  jQuery(window).resize( function() {
-    jQuery("#mobile-menu-container").height(jQuery("#header").height());
-  });
-</script>

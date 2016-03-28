@@ -17,6 +17,7 @@ features[] = secondary_menu
 stylesheets[all][] = qtip/jquery.qtip-modified.css
 scripts[] = qtip/jquery.qtip.min.js
 scripts[] = qtip/qtip-scriptures.js
+scripts[] = js/main.js
 
 stylesheets[all][] = style.css
 stylesheets[all and (min-width: 1000px)][] = style-desktop.css
