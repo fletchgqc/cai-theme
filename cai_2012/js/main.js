@@ -1,3 +1,6 @@
+/* -- Constants -- */
+var MIN_DESKTOP_WIDTH = 1000;
+
 /* -- Functions -- */
 function showFeature(elem) {
   var item = jQuery(elem).parent();
@@ -14,24 +17,34 @@ function hideFeature(elem) {
 }
 
 function organizeFeaturedArticles() {
-  if(jQuery(window).width() < 1000) {
-    var featuredTestimonyPositionElement = jQuery("#content-front > .field > .field-items > .field-item > p:nth-child(2)");
-    var featuredBibleStudyPositionElement = jQuery("#content-front > .field > .field-items > .field-item > h2:eq(0)");
-    var featuredVideoPositionElement = jQuery("#content-front > .field > .field-items > .field-item > h2:eq(1)");
-    featuredTestimonyPositionElement.before("<div class='featured'><div class='item'>" + jQuery(".item:nth-child(1)").html() + "</div></div>");
-    featuredBibleStudyPositionElement.before("<div class='featured'><div class='item'>" + jQuery(".item:nth-child(2)").html() + "</div></div>");
-    featuredVideoPositionElement.before("<div class='featured'><div class='item'>" + jQuery(".item:nth-child(3)").html() + "</div></div>");
-    jQuery(".featured .item").each(function() {
-      //jQuery(this).click();
+  var windowSize = jQuery(window).width();
+  var hasMobileFeaturedItems = jQuery(".mobileFeatured").length;
+  if(hasMobileFeaturedItems) {
+    if(windowSize < MIN_DESKTOP_WIDTH) {
+      jQuery(".mobileFeatured").each(function(){jQuery(this).css("display","block")});
+    } else {
+      jQuery(".mobileFeatured").each(function(){jQuery(this).css("display","none")});
+    }
+  } else {
+    if(windowSize < MIN_DESKTOP_WIDTH) {
+      var featuredTestimonyPositionElement = jQuery("#content-front > .field > .field-items > .field-item > p:nth-child(2)");
+      var featuredBibleStudyPositionElement = jQuery("#content-front > .field > .field-items > .field-item > h2:eq(0)");
+      var featuredVideoPositionElement = jQuery("#content-front > .field > .field-items > .field-item > h2:eq(1)");
+      featuredTestimonyPositionElement.before("<div class='mobileFeatured'><div class='item'>" + jQuery(".item:nth-child(1)").html() + "</div></div>");
+      featuredBibleStudyPositionElement.before("<div class='mobileFeatured'><div class='item'>" + jQuery(".item:nth-child(2)").html() + "</div></div>");
+      featuredVideoPositionElement.before("<div class='mobileFeatured'><div class='item'>" + jQuery(".item:nth-child(3)").html() + "</div></div>");
+      jQuery(".mobileFeatured .item").each(function() {
+        //jQuery(this).click();
 
-      // Workaround to fix css problem
-      // It won't be needed anymore since the idea is to have image for all the featured articles!! TODO: delete this code after confirmation!
-      var ele = jQuery(this).find("img.image-left");
-      if(ele.length == 0) {
-        jQuery(this).find(".heading").css("left", "10px");
-        jQuery(this).find(".node h2").css("left", "0px");
-      }
-    });
+        // Workaround to fix css problem
+        // It won't be needed anymore since the idea is to have image for all the featured articles!! TODO: delete this code after confirmation!
+        var ele = jQuery(this).find("img.image-left");
+        if(ele.length == 0) {
+          jQuery(this).find(".heading").css("left", "10px");
+          jQuery(this).find(".node h2").css("left", "0px");
+        }
+      });
+    }
   }
 }
 
@@ -61,12 +74,8 @@ jQuery(document).ready(function(){
     }
   });
 
-  // Controlling Mobile Menu Container
+  // Setting Menu Container height
   jQuery("#mobile-menu-container").height(jQuery("#header").height());
-  jQuery(window).resize( function() {
-    jQuery("#mobile-menu-container").height(jQuery("#header").height());
-    jQuery("#mobile-menu").css("height",(jQuery("#mobile-menu-container").height()/2)+"px");
-  });
 
   // Scroll event
   jQuery(window).on("scroll", function(e) {
@@ -75,6 +84,13 @@ jQuery(document).ready(function(){
     } else {
       jQuery("#mobile-menu").css({"position":"absolute", "height": (jQuery("#mobile-menu-container").height()/2)+"px", "top":"50%"});
     }
+  });
+
+  // Controlling resize events
+  jQuery(window).resize( function() {
+    jQuery("#mobile-menu-container").height(jQuery("#header").height());
+    jQuery("#mobile-menu").css("height",(jQuery("#mobile-menu-container").height()/2)+"px");
+    organizeFeaturedArticles();
   });
 
 });
