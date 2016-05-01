@@ -6,14 +6,34 @@ function showFeature(elem) {
   var item = jQuery(elem).parent();
   jQuery(elem).hide();
   jQuery(item).find("#arrow-up").show();
-  jQuery(item).find(".field p").show();
+  var text = jQuery(item).find(".field p");
+  if(jQuery(item).find(".content .image-left").length == 0) {
+    var itemHeight = jQuery(item).height();
+    var textHeight = jQuery(text).height();
+    var textPadding = parseInt(jQuery(text).css("padding").replace("px",""));
+    var pHeight = textHeight + 2*textPadding;
+    jQuery(text).css("top",itemHeight+"px");
+    jQuery(text).css("position","absolute");
+    jQuery(item).css("height", (itemHeight+pHeight)+"px");
+  }
+  jQuery(text).show();
 }
 
 function hideFeature(elem) {
   var item = jQuery(elem).parent();
   jQuery(elem).hide();
   jQuery(item).find("#arrow-down").show();
-  jQuery(item).find(".field p").hide();
+  var text = jQuery(item).find(".field p");
+  if(jQuery(item).find(".content .image-left").length == 0) {
+    var itemHeight = jQuery(item).height();
+    var textHeight = jQuery(text).height();
+    var textPadding = parseInt(jQuery(text).css("padding").replace("px",""));
+    var pHeight = textHeight + 2*textPadding;
+    jQuery(text).css("top","0px");
+    jQuery(text).css("position","absolute");
+    jQuery(item).css("height", (itemHeight-pHeight)+"px");
+  }
+  jQuery(text).hide();
 }
 
 function organizeFeaturedArticles() {
@@ -77,14 +97,14 @@ jQuery(document).ready(function(){
   // Setting Menu Container height
   jQuery("#mobile-menu-container").height(jQuery("#header").height());
 
-  // Scroll event
-  jQuery(window).on("scroll", function(e) {
+  // Scroll event - NOT NECESSARY RIGHT NOW
+  /*jQuery(window).on("scroll", function(e) {
     if(jQuery(this).scrollTop() > jQuery("#mobile-language").height()) {
       jQuery("#mobile-menu").css({"position":"fixed", "height": (jQuery("#mobile-menu-container").height()/2)+"px", "top":"0%"});
     } else {
       jQuery("#mobile-menu").css({"position":"absolute", "height": (jQuery("#mobile-menu-container").height()/2)+"px", "top":"50%"});
     }
-  });
+  });*/
 
   // Controlling resize events
   jQuery(window).resize( function() {

@@ -1,4 +1,5 @@
   <div id="mobile-menu-container">
+    <a href="/" id="mobile-logo"></a>
     <div id="mobile-language"></div>
     <div id="mobile-menu"></div>
   </div>
