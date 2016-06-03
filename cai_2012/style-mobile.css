@@ -64,7 +64,7 @@
 }
 
 #mobile-menu-container {
-  position: fixed;
+  position: absolute;
   width: 100%;
   z-index: 2;
 }
@@ -72,7 +72,7 @@
 #mobile-language, #mobile-menu {
   width: 14%;
   height: 50%;
-  background-color: red;
+  /*background-color: red;*/
   opacity: 0.5;
   cursor: pointer;
   position: absolute;
@@ -82,8 +82,14 @@
 }
 
 #mobile-menu {
-  background-color: green;
+  /*background-color: green;*/
   top: 50%;
+}
+
+#mobile-logo {
+  width: 90px;
+  height: 100%;
+  display: block;
 }
 
 #current-lang-flag {
@@ -132,6 +138,7 @@
   padding: 0.6em 0;
   border: none;
   background-color: #ff6600;
+  display: none;
 }
 
 .offcanvas ul { list-style: none; padding: 0px; margin: 0px; text-align: left; font-weight: normal; }
