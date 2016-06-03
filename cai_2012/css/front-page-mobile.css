@@ -60,37 +60,27 @@
     background: #ff6600; /* #f4efaa;*/
     margin-bottom: 1em;
     position: relative;
-    min-height: 70px;
   }
 
   .mobileFeatured div.item h2 {
-    position: absolute;
     font-size: 1.3em;
-    margin: 0;
-    padding: 0;
+    margin: 0px 5px;
     color: #fff;
   }
 
-  .mobileFeatured div.item .heading {
-    left: 120px;
-    top: 10px;
+  .mobileFeatured h2.heading {
+    margin: 0px 5px;
   }
 
-  .mobileFeatured h2.heading {
-    position: absolute;
-    float: right;
-    padding: 0.8em 0.1em 0.3em 0.6em;
+  .mobileFeatured h2.heading2 {
+    margin: 0px 5px;
+    margin-bottom: 10px !important;
+    text-decoration: underline;
   }
 
   .mobileFeatured div.node {
     border-bottom: none;
-  }
-
-  .mobileFeatured div.node h2 {
-    top: 30px;
-    left: 110px;
-    float: left;
-    padding: 0.8em 0.1em 0.3em 0.6em;
+    position: relative;
   }
 
   .mobileFeatured div.node #content {
@@ -114,10 +104,10 @@
   }
 
   .mobileFeatured img.image-left {
-    float: left;
     display: block;
     width: 100px;
-    margin: 0 10px 0px 10px;
+    margin: 0px 10px 0px 0px;
+    vertical-align: top;
   }
 
   .mobileFeatured p {

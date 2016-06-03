@@ -6,34 +6,14 @@ function showFeature(elem) {
   var item = jQuery(elem).parent();
   jQuery(elem).hide();
   jQuery(item).find("#arrow-up").show();
-  var text = jQuery(item).find(".field p");
-  if(jQuery(item).find(".content .image-left").length == 0) {
-    var itemHeight = jQuery(item).height();
-    var textHeight = jQuery(text).height();
-    var textPadding = parseInt(jQuery(text).css("padding").replace("px",""));
-    var pHeight = textHeight + 2*textPadding;
-    jQuery(text).css("top",itemHeight+"px");
-    jQuery(text).css("position","absolute");
-    jQuery(item).css("height", (itemHeight+pHeight)+"px");
-  }
-  jQuery(text).show();
+  jQuery(item).find(".field p").show();
 }
 
 function hideFeature(elem) {
   var item = jQuery(elem).parent();
   jQuery(elem).hide();
   jQuery(item).find("#arrow-down").show();
-  var text = jQuery(item).find(".field p");
-  if(jQuery(item).find(".content .image-left").length == 0) {
-    var itemHeight = jQuery(item).height();
-    var textHeight = jQuery(text).height();
-    var textPadding = parseInt(jQuery(text).css("padding").replace("px",""));
-    var pHeight = textHeight + 2*textPadding;
-    jQuery(text).css("top","0px");
-    jQuery(text).css("position","absolute");
-    jQuery(item).css("height", (itemHeight-pHeight)+"px");
-  }
-  jQuery(text).hide();
+  jQuery(item).find(".field p").hide();
 }
 
 function organizeFeaturedArticles() {
@@ -50,21 +30,45 @@ function organizeFeaturedArticles() {
       var featuredTestimonyPositionElement = jQuery("#content-front > .field > .field-items > .field-item > p:nth-child(2)");
       var featuredBibleStudyPositionElement = jQuery("#content-front > .field > .field-items > .field-item > h2:eq(0)");
       var featuredVideoPositionElement = jQuery("#content-front > .field > .field-items > .field-item > h2:eq(1)");
-      featuredTestimonyPositionElement.before("<div class='mobileFeatured'><div class='item'>" + jQuery(".item:nth-child(1)").html() + "</div></div>");
-      featuredBibleStudyPositionElement.before("<div class='mobileFeatured'><div class='item'>" + jQuery(".item:nth-child(2)").html() + "</div></div>");
-      featuredVideoPositionElement.before("<div class='mobileFeatured'><div class='item'>" + jQuery(".item:nth-child(3)").html() + "</div></div>");
-      jQuery(".mobileFeatured .item").each(function() {
-        //jQuery(this).click();
-
-        // Workaround to fix css problem
-        // It won't be needed anymore since the idea is to have image for all the featured articles!! TODO: delete this code after confirmation!
-        var ele = jQuery(this).find("img.image-left");
-        if(ele.length == 0) {
-          jQuery(this).find(".heading").css("left", "10px");
-          jQuery(this).find(".node h2").css("left", "0px");
-        }
-      });
+      featuredTestimonyPositionElement.before("<div class='mobileFeatured'><div class='item'>" + treatedFeaturedItems(jQuery(".item:nth-child(1)")) + "</div></div>");
+      featuredBibleStudyPositionElement.before("<div class='mobileFeatured'><div class='item'>" + treatedFeaturedItems(jQuery(".item:nth-child(2)")) + "</div></div>");
+      featuredVideoPositionElement.before("<div class='mobileFeatured'><div class='item'>" + treatedFeaturedItems(jQuery(".item:nth-child(3)")) + "</div></div>");
     }
+  }
+}
+
+function treatedFeaturedItems(element) {
+  var clonedElement = jQuery(element).clone(); // cloning to not affect the desktop version
+  jQuery(clonedElement).find("span.element-invisible").remove(); // It was expanding the document width so I had to remove it.
+  var firstHeaderHtml = jQuery(clonedElement).children("h2.heading").detach().wrap("<div>").parent().html();
+  var arrowUp = jQuery(clonedElement).children("#arrow-up").detach().wrap("<div>").parent().html();
+  var arrowDown = jQuery(clonedElement).children("#arrow-down").detach().wrap("<div>").parent().html();
+  var secondHeaderHtml = jQuery(clonedElement).find("div.node h2").addClass("heading2").detach().wrap("<div>").parent().html();
+  var imageLeft = jQuery(clonedElement).find("div.node img.image-left").parent().detach().wrap("<div>").parent().html();
+  var rest = jQuery(clonedElement).find("div.node").detach().wrap("<div>").parent().html();
+  return (imageLeft!==undefined?imageLeft:"") + firstHeaderHtml + secondHeaderHtml + arrowUp + arrowDown + rest;
+}
+
+function getValueFromOptionList(optionText, selectElement) {
+  var value = "";
+  jQuery("#"+selectElement+" > option").each(function() {
+    if(jQuery(this).text() == optionText) {
+      value = jQuery(this).val();
+      return false; // only way to break .each()
+    }
+  });
+  return value;
+}
+
+function toggleLanguageSelection() {
+  var windowSize = jQuery(window).width();
+  jQuery("#language-select-list-button").hide();
+  if(windowSize >= MIN_DESKTOP_WIDTH) {
+    jQuery("#language-select-form").show();
+    jQuery("#language-select-list").show();
+  } else {
+    jQuery("#language-select-form").hide();
+    jQuery("#language-select-list").hide();
   }
 }
 
@@ -72,12 +76,25 @@ function organizeFeaturedArticles() {
 jQuery(document).ready(function(){
   organizeFeaturedArticles();
 
+  // Creating language menu with jquery mobile
+  $("#language-select-list").selectmenu();
+  $("#language-select-list-button").css("width","100%");
+  $("#language-select-list-button > .ui-selectmenu-text").on("DOMSubtreeModified",function(){
+    var text = $(this).text();
+    if(text!="") {
+      document.location.href=getValueFromOptionList(text,"language-select-list");
+    }
+  });
+  toggleLanguageSelection();
+
   // Language Button click event
   jQuery('#mobile-language').click(function(e) {
     if(jQuery("#language-select-form").css("display") == "none") {
-      jQuery("#language-select-form").css("display", "block");
+      jQuery("#language-select-form").show();
+      jQuery("#language-select-list-button").show();
+      jQuery("#language-select-list-button").click();
     } else {
-      jQuery("#language-select-form").css("display", "none");
+      jQuery("#language-select-form").hide();
     }
   });
 
@@ -95,7 +112,13 @@ jQuery(document).ready(function(){
   });
 
   // Setting Menu Container height
-  jQuery("#mobile-menu-container").height(jQuery("#header").height());
+  // This setInterval is a workaround due to the fact that if the banner-mobile img is not totally loaded, the #header's height wouldn't be calculated
+  var bannerMobileDelayHandler = setInterval(function() {
+    if(document.getElementById("banner-mobile").complete) {
+      jQuery("#mobile-menu-container").height(jQuery("#header").height());
+      clearInterval(bannerMobileDelayHandler);
+    }
+  }, 500);
 
   // Scroll event - NOT NECESSARY RIGHT NOW
   /*jQuery(window).on("scroll", function(e) {
@@ -111,6 +134,7 @@ jQuery(document).ready(function(){
     jQuery("#mobile-menu-container").height(jQuery("#header").height());
     jQuery("#mobile-menu").css("height",(jQuery("#mobile-menu-container").height()/2)+"px");
     organizeFeaturedArticles();
+    toggleLanguageSelection();
   });
 
 });
