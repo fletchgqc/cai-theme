@@ -1,7 +1,14 @@
+  <div id="ui-tooltip-mobile"></div>
+
   <div id="mobile-menu-container">
     <a href="/" id="mobile-logo"></a>
-    <div id="mobile-language"></div>
-    <div id="mobile-menu"></div>
+    <div id="mobile-language">
+      <?php $img_url = "/".$directory."/images/CAI-Mobil-Language-Button_".strtoupper($language->language).".png"; ?>
+      <img class="header-button" src="<?php print $img_url; ?>" />
+    </div>
+    <div id="mobile-menu">
+      <img class="header-button" src="/<?php print $directory ?>/images/CAI-Mobil-Menu-Button.png" />
+    </div>
   </div>
 
   <nav class="offcanvas transition">
@@ -18,7 +25,7 @@
       <div id="logo-title">
         <a href="<?php print url(); ?>">
           <img src="/<?php print $directory ?>/images/banner-image.png" alt="Christian Assemblies International Banner" id="banner" />
-          <img src="/<?php print $directory ?>/images/banner-image-mobile.png" alt="Christian Assemblies International Banner" id="banner-mobile" />
+          <img src="/<?php print $directory ?>/images/banner-image-mobile.jpg" alt="Christian Assemblies International Banner" id="banner-mobile" />
         </a>
       </div> <!-- /logo-title -->
                        

@@ -30,6 +30,7 @@
  */
 body {
   background: #02029c url(images/page-bg.png) repeat-y top;
+  font-size: 75%;
 }
 
 #page {

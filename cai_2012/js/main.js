@@ -61,20 +61,31 @@ function getValueFromOptionList(optionText, selectElement) {
 }
 
 function toggleLanguageSelection() {
-  var windowSize = jQuery(window).width();
   jQuery("#language-select-list-button").hide();
-  if(windowSize >= MIN_DESKTOP_WIDTH) {
-    jQuery("#language-select-form").show();
-    jQuery("#language-select-list").show();
-  } else {
+  if(isMobile()) {
     jQuery("#language-select-form").hide();
     jQuery("#language-select-list").hide();
+  } else {
+    jQuery("#language-select-form").show();
+    jQuery("#language-select-list").show();
   }
+}
+
+function isMobile() {
+  var windowSize = jQuery(window).width();
+  return windowSize < MIN_DESKTOP_WIDTH;
+}
+
+function resetUiTooltips() {
+  $(".page").click();
+  $(".ui-tooltip").css({"display":"none","width":"300px"});
 }
 
 /* -- Events -- */
 jQuery(document).ready(function(){
   organizeFeaturedArticles();
+
+  jQuery(".element-invisible").remove();
 
   // Creating language menu with jquery mobile
   $("#language-select-list").selectmenu();
@@ -109,6 +120,16 @@ jQuery(document).ready(function(){
     if(jQuery("body").hasClass("active")) {
       jQuery("body").toggleClass("active");
     }
+    $("#ui-tooltip-mobile").hide();
+  });
+
+  jQuery("cite.bibleref").click(function(e){
+    if(isMobile()) {
+      e.stopPropagation();
+      var text = $(this).attr("oldtitle");
+      $("#ui-tooltip-mobile").text(text);
+      $("#ui-tooltip-mobile").show();
+    }
   });
 
   // Setting Menu Container height
@@ -135,6 +156,7 @@ jQuery(document).ready(function(){
     jQuery("#mobile-menu").css("height",(jQuery("#mobile-menu-container").height()/2)+"px");
     organizeFeaturedArticles();
     toggleLanguageSelection();
+    resetUiTooltips();
   });
 
 });

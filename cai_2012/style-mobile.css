@@ -36,6 +36,10 @@
   /*background: url(images/background-shading.png) repeat-y;
 }*/
 
+body {
+  font-size: 16px;
+}
+
 #banner {
   display: none;
 }
@@ -72,8 +76,6 @@
 #mobile-language, #mobile-menu {
   width: 14%;
   height: 50%;
-  /*background-color: red;*/
-  opacity: 0.5;
   cursor: pointer;
   position: absolute;
   top: 0;
@@ -82,8 +84,15 @@
 }
 
 #mobile-menu {
-  /*background-color: green;*/
   top: 50%;
+}
+
+#mobile-language {
+  padding-top: 5px;
+}
+
+.header-button {
+  width: 70%;
 }
 
 #mobile-logo {
@@ -162,3 +171,26 @@ body.active .offcanvas { margin-right: -2px; right: -2px; position: fixed; displ
 body.active .page { margin-left: -200px; border-right: 2px solid #ffaa00; }
 body.active { background-color: #ff6600; overflow: hidden; }
 body.active #mobile-menu, body.active #mobile-language { right: 200px; }
+
+#ui-tooltip-mobile {
+  position: fixed;
+  display: none;
+  width: 92%;
+  max-height: 50%;
+  background-color: #F8CE7D;
+  z-index: 15000;
+  padding: 4%;
+  overflow-y: auto;
+  border-bottom: 13px solid #F8CE7D;
+  border-bottom-left-radius: 15px;
+  border-bottom-right-radius: 15px;
+  border-top-left-radius: 15px;
+  border-top-right-radius: 15px;
+  -webkit-box-shadow: 1px 5px 5px 0px rgba(50, 50, 50, 0.47);
+  -moz-box-shadow:    1px 5px 5px 0px rgba(50, 50, 50, 0.47);
+  box-shadow:         1px 5px 5px 0px rgba(50, 50, 50, 0.47);
+}
+
+.ui-tooltip {
+  display: none !important;
+}
