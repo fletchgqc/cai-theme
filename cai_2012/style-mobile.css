@@ -87,12 +87,21 @@ body {
   top: 50%;
 }
 
+#mobile-menu img {
+  top: 5%;
+}
+
 #mobile-language {
   padding-top: 5px;
 }
 
+#mobile-language img {
+  bottom: 10%;
+}
+
 .header-button {
   width: 70%;
+  position: absolute;
 }
 
 #mobile-logo {
