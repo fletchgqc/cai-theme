@@ -97,8 +97,15 @@
   <div class="content"<?php print $content_attributes; ?>>
     <?php
     if ($page) {
-      // Second param is whether to preload video, i.e. if teaser don't preload because there are heaps on one page 
-      print(cai_2012_html5_video($node, $page));
+      drupal_add_css(path_to_theme() . '/css/testimony.css');
+
+      $video_markup = cai_2012_vimeo_video($node);
+      if (empty($video_markup)) {
+        // Second param is whether to preload video, i.e. if teaser don't preload because there are heaps on one page
+        $video_markup = cai_2012_html5_video($node, $page);
+      }
+      print $video_markup;
+
       // We hide the comments and links now so that we can render them later.
       hide($content['comments']);
       hide($content['links']);

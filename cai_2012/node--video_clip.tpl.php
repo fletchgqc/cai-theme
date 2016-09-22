@@ -97,8 +97,12 @@
   <div class="content"<?php print $content_attributes; ?>>
 
     <?php if ($page) {
-      // Second param is whether to preload video, i.e. if teaser don't preload because there are heaps on one page 
-      print(cai_2012_html5_video($node, $page));
+      $video_markup = cai_2012_vimeo_video($node);
+      if (empty($video_markup)) {
+        // Second param is whether to preload video, i.e. if teaser don't preload because there are heaps on one page
+        $video_markup = cai_2012_html5_video($node, $page);
+      }
+      print $video_markup;
     } else {    
       $thumbnail_items = field_get_items('node', $node, 'field_video_thumbnail');
       $thumbnail_markup = $thumbnail_items ? '<img src="' . file_create_url($thumbnail_items[0]['uri']) . '" alt="' . t('video thumbnail') . '">' : '';
