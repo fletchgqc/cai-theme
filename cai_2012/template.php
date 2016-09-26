@@ -1,7 +1,8 @@
 <?php
 function cai_2012_contact_map_page() {
   require_once drupal_get_path('module', 'contact') .'/contact.pages.inc';
-  $result = drupal_render(drupal_get_form('contact_site_form'));
+  $contact_form = drupal_get_form('contact_site_form');
+  $result = drupal_render($contact_form);
   $result .= '<hr class="divider" />';
   // note: it doesn't make sense to manually maintain the link maps in every language. Since they're there, we've left them,
   // but when the map changes (i.e. a country is added) we create the internationalised map in this function and supply it from here.
