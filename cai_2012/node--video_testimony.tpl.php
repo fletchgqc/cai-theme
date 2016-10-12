@@ -105,19 +105,22 @@
         $video_markup = cai_2012_html5_video($node, $page);
       }
       print $video_markup;
-
-      // We hide the comments and links now so that we can render them later.
-      hide($content['comments']);
-      hide($content['links']);
     } else {
       print(cai_2012_get_video_thumbnail_teaser_markup($node, $node_url));
     }
+
+    // We hide the comments and links now so that we can render them later.
+    hide($content['comments']);
+    hide($content['links']);
     print render($content);
     ?>
   </div>
+  <?php
+  if ($page) {
+    print render($content['links']);
+  }
 
-  <?php print render($content['links']); ?>
-
-  <?php print render($content['comments']); ?>
+  print render($content['comments']);
+  ?>
 
 </div>
