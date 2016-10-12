@@ -12,9 +12,9 @@
   <?php print $styles; ?>
   <!-- aside element compatibility for old IE browsers -->
   <script>document.createElement('aside');</script>
-  
-<!--  <link rel="stylesheet" href="https://code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
-  <script src="https://code.jquery.com/ui/1.11.4/jquery-ui.js"></script> -->
+  <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
+  <?php print $scripts; ?>
+  <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
   <?php print $scripts; ?>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>

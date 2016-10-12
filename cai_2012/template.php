@@ -25,8 +25,6 @@ function cai_2012_menu_tree__menu_banner_menu($variables){
 function cai_2012_preprocess_page(&$variables){
   $search_form = drupal_get_form('search_form');
   $variables['search_box'] = drupal_render($search_form);
-  // this is supposed to add jquery-ui, not working for me: 
-  drupal_add_library('system', 'ui');
 }
 
 function cai_2012_get_malawi_url() {
