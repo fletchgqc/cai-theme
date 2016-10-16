@@ -65,7 +65,7 @@
 
   function resetUiTooltips() {
     $(".page").click();
-    $(".ui-tooltip").css({"display":"none","width":"300px"});
+    $(".qtip").css({"display":"none","width":"300px"});
   }
 
   function wrapTables() {

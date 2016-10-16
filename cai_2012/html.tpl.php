@@ -15,7 +15,6 @@
   <link rel="stylesheet" href="//code.jquery.com/ui/1.11.4/themes/smoothness/jquery-ui.css">
   <?php print $scripts; ?>
   <script src="//code.jquery.com/ui/1.11.4/jquery-ui.js"></script>
-  <?php print $scripts; ?>
 </head>
 <body class="<?php print $classes; ?>" <?php print $attributes;?>>
   <div id="skip-link">

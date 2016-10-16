@@ -101,8 +101,8 @@ drupal_add_css(drupal_get_path('theme', 'cai_2012') . '/css/front-page-mobile.cs
     <div id="featured">
       <div class="item">
         <h2 class="heading"><?php print t('Featured Testimony'); ?></h2>
-        <img src="/<?php print $directory ?>/images/arrow-up.png" alt="See less" id="arrow-up" class="arrow" onclick="hideFeature(this);" />
-        <img src="/<?php print $directory ?>/images/arrow-down.png" alt="See more" id="arrow-down" class="arrow" onclick="showFeature(this);" />
+        <img src="/<?php print $directory ?>/images/arrow-up.png" alt="See less" class="arrow arrow-up" />
+        <img src="/<?php print $directory ?>/images/arrow-down.png" alt="See more" class="arrow arrow-down" />
         <?php
           $number = 1;
           $featured_testimony = nodequeue_load_back($number);
@@ -112,8 +112,8 @@ drupal_add_css(drupal_get_path('theme', 'cai_2012') . '/css/front-page-mobile.cs
       </div><!-- item -->
       <div class="item">
         <h2 class="heading"><?php print t('Featured Bible Study'); ?></h2>
-        <img src="/<?php print $directory ?>/images/arrow-up.png" alt="See less" id="arrow-up" class="arrow" onclick="hideFeature(this);" />
-        <img src="/<?php print $directory ?>/images/arrow-down.png" alt="See more" id="arrow-down" class="arrow" onclick="showFeature(this);" />
+        <img src="/<?php print $directory ?>/images/arrow-up.png" alt="See less" class="arrow arrow-up" />
+        <img src="/<?php print $directory ?>/images/arrow-down.png" alt="See more" class="arrow arrow-down" />
         <?php
           $number = 3;
           $featured_bible_study = nodequeue_load_back($number);
@@ -123,8 +123,8 @@ drupal_add_css(drupal_get_path('theme', 'cai_2012') . '/css/front-page-mobile.cs
       </div><!-- item -->
       <div class="item featured-video">
         <h2 class="heading"><?php print t('Featured Video'); ?></h2>
-        <img src="/<?php print $directory ?>/images/arrow-up.png" alt="See less" id="arrow-up" class="arrow" onclick="hideFeature(this);" />
-        <img src="/<?php print $directory ?>/images/arrow-down.png" alt="See more" id="arrow-down" class="arrow" onclick="showFeature(this);" />
+        <img src="/<?php print $directory ?>/images/arrow-up.png" alt="See less" class="arrow arrow-up" />
+        <img src="/<?php print $directory ?>/images/arrow-down.png" alt="See more" class="arrow arrow-down" />
         <?php
           $number = 4;
           $featured_video = nodequeue_load_back($number);

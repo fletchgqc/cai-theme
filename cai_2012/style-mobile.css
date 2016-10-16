@@ -129,7 +129,39 @@ body {
 }
 
 #sidebar-left {
-  display: none;
+  display: block;
+  width: 100%;
+  overflow-x: scroll;
+  background-color: #f4efaa;
+  height: auto;
+}
+
+#sidebar-left ul {
+  list-style: none;
+  display: table-row;
+  margin: 0;
+  padding: 0;
+}
+
+#sidebar-left li {
+  display: table-cell;
+  margin: 0;
+  padding: 0;
+  width: 100%;
+  white-space: nowrap;
+  border-bottom: 1px solid #ff9933;
+}
+
+#sidebar-left li.active-trail a {
+  background-color: #f8ce7d;
+  font-weight: bold;
+}
+
+#sidebar-left li a {
+  color: #000;
+  display: block;
+  padding: 0.5em 15px;
+  text-decoration: none;
 }
 
 #main { /* everything except top menu, left menu and footer */
@@ -137,6 +169,11 @@ body {
   float: left;
   width: 100%;
   line-height: 1.5em;
+}
+
+#content {
+  margin: 10px;
+  word-wrap: break-word;
 }
 
 #logo-title {
@@ -200,6 +237,40 @@ body.active #mobile-menu, body.active #mobile-language { right: 200px; }
   box-shadow:         1px 5px 5px 0px rgba(50, 50, 50, 0.47);
 }
 
-.ui-tooltip {
+.qtip {
   display: none !important;
+}
+
+
+/** Bible Studies **/
+.term-highlight-left, .term-highlight-right {
+    width: 100% !important;
+    background-size: contain !important;
+}
+
+.term-highlight-left h2, .term-highlight-right h2 {
+    background-size: cover !important;
+}
+
+#pdf-link, #standalone-pdf-link {
+  display: none;
+}
+
+.mobile-table-wrap {
+  overflow-x: scroll;
+  width: 100%;
+}
+
+#content blockquote {
+  width: 100%;
+}
+
+#content img.standalone-image {
+  width: 100%;
+  height: auto;
+}
+
+p img.image-right, p img.image-left {
+  width: 100% !important;
+  margin: 0px !important;
 }

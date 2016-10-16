@@ -9,10 +9,14 @@
   	float: none;
   }
 
+  #content {
+    margin: 10px;
+  }
+
   #content-front {
     float: left;
-    width: 96%;
-    margin: 2%;
+    /*width: 96%;
+    margin: 2%;*/
     padding: 0px;
   }
 
@@ -137,7 +141,7 @@
   }
 
   #page-title {
-    margin: 10px 10px;
+    /*margin: 10px 10px;*/
   }
 
   .arrow {
@@ -158,7 +162,7 @@
     border-radius: 30px;
   }
 
-  #arrow-down {
+  .arrow-down {
     display: block;
   }
 
