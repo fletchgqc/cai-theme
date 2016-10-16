@@ -15,8 +15,6 @@
 
   #content-front {
     float: left;
-    /*width: 96%;
-    margin: 2%;*/
     padding: 0px;
   }
 
@@ -138,10 +136,6 @@
 
   .mobileFeatured li {
   	margin-bottom: 0.7em;
-  }
-
-  #page-title {
-    /*margin: 10px 10px;*/
   }
 
   .arrow {
