@@ -127,6 +127,19 @@ function cai_2012_vimeo_video($node) {
     . '<hr class="testimony-video-divider">';
 }
 
+function cai_2012_vimeo_thumbnail($node, $node_url) {
+    $vimeo_items = field_get_items('node', $node, 'field_vimeo_video_number');
+    if (!$vimeo_items) {
+      return '';
+    }
+    $vimeo_id = $vimeo_items[0]['value'];
+    $video_json = file_get_contents('https://vimeo.com/api/oembed.json?url=https%3A//vimeo.com/' . $vimeo_id);
+    $video = json_decode($video_json);
+
+    $thumbnail_markup = '<img class="vimeo-thumbnail" src="' . $video->thumbnail_url_with_play_button . '">';
+    return '<a href="' . $node_url . '">' . $thumbnail_markup . '</a>';
+}
+
 /**
  * The old code to get an HTML5 video with Video.js. Not in use but worth keeping because it supported multiple <track> (subtitle) elements.
  * If flowplayer one day supports these, we could re-utilise the code.

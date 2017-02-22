@@ -85,6 +85,7 @@
   <?php print render($title_prefix); ?>
   <?php if (!$page): ?>
     <h2<?php print $title_attributes; ?>><a href="<?php print $node_url; ?>"><?php print $title; ?></a></h2>
+    <?php print cai_2012_vimeo_thumbnail($node, $node_url); ?>
   <?php endif; ?>
   <?php print render($title_suffix); ?>
 
