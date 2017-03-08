@@ -49,7 +49,7 @@ img {
 /* Both IE7 & FF3 use margin-bottom, no padding on headings by default */
 h1, h2, h3, h4, h5 {
   line-height: 1.4em;
-	color: #ff0066;
+	color: #000066;
   font-weight: bold;
 }
 
