@@ -30,7 +30,7 @@
  */
 body {
 	font-family: verdana, arial, sans-serif;
-	padding: 100px 0 0 0;
+	padding: 0;
 	margin: 0;
 }
 
@@ -49,7 +49,7 @@ img {
 /* Both IE7 & FF3 use margin-bottom, no padding on headings by default */
 h1, h2, h3, h4, h5 {
   line-height: 1.4em;
-	color: #000066;
+	color: #ff0066;
   font-weight: bold;
 }
 
