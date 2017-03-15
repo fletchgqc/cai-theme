@@ -510,19 +510,10 @@ table.sus-teaching-plan td:first-child {
 /*
  * Video testimonies page
  */
-/* This will only apply to teasers */
-.views-row .video-thumbnail-teaser {
-  width: 350px;
-}
-
-.views-row-odd .video-thumbnail-teaser {
+.views-row img.vimeo-thumbnail {
+  width: 300px;
   float: left;
   margin-right: 2em;
-}
-
-.views-row-even .video-thumbnail-teaser {
-  float: right;
-  margin-left: 2em;
 }
 
 /* Qtip scripture pop-ups. See also code in <theme>/qtip/*.css */

@@ -100,13 +100,10 @@
       drupal_add_css(path_to_theme() . '/css/testimony.css');
 
       $video_markup = cai_2012_vimeo_video($node);
-      if (empty($video_markup)) {
-        // Second param is whether to preload video, i.e. if teaser don't preload because there are heaps on one page
-        $video_markup = cai_2012_html5_video($node, $page);
-      }
+
       print $video_markup;
     } else {
-      print(cai_2012_get_video_thumbnail_teaser_markup($node, $node_url));
+      print(cai_2012_vimeo_thumbnail($node, $node_url));
     }
 
     // We hide the comments and links now so that we can render them later.

@@ -127,6 +127,9 @@ function cai_2012_vimeo_video($node) {
     . '<hr class="testimony-video-divider">';
 }
 
+/*
+ * Return a thumbnail for this vimeo video. If node_url is supplied, will be returned in form of a link to the video.
+ */
 function cai_2012_vimeo_thumbnail($node, $node_url) {
     $vimeo_items = field_get_items('node', $node, 'field_vimeo_video_number');
     if (!$vimeo_items) {
@@ -136,8 +139,12 @@ function cai_2012_vimeo_thumbnail($node, $node_url) {
     $video_json = file_get_contents('https://vimeo.com/api/oembed.json?url=https%3A//vimeo.com/' . $vimeo_id);
     $video = json_decode($video_json);
 
-    $thumbnail_markup = '<img class="vimeo-thumbnail" src="' . $video->thumbnail_url_with_play_button . '">';
-    return '<a href="' . $node_url . '">' . $thumbnail_markup . '</a>';
+    $thumbnail_markup = '<img class="vimeo-thumbnail" src="' . $video->thumbnail_url . '">';
+    if ($node_url) {
+      return '<a href="' . $node_url . '">' . $thumbnail_markup . '</a>';
+    } else {
+      return $thumbnail_markup;
+    }
 }
 
 /**
