@@ -270,7 +270,25 @@ body.active #mobile-menu, body.active #mobile-language { right: 200px; }
   height: auto;
 }
 
-p img.image-right, p img.image-left {
+.image-left {
+  float: left;
+}
+
+.image-right {
+  float: right;
+}
+
+.image-left, .image-right {
+  text-align: center;
+}
+
+span.image-right, span.image-left {
+  margin-bottom: 25px;
   width: 100% !important;
+}
+
+p img.image-right, p img.image-left, p img {
+  width: 100% !important;
+  height: auto !important;
   margin: 0px !important;
 }

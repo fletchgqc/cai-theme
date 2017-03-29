@@ -253,3 +253,15 @@ hr#contact-divider {
 .offcanvas {
   display: none;
 }
+
+.image-left {
+  float: left;
+  margin: 5px 25px 5px 0;
+  text-align: center;
+}
+
+.image-right {
+  float: right;
+  margin: 5px 0 5px 25px;
+  text-align: center;
+}
