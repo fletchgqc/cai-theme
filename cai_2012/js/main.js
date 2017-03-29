@@ -31,7 +31,8 @@
     var arrowUp = $(clonedElement).children(".arrow-up").first().detach().wrap("<div>").parent().html();
     var arrowDown = $(clonedElement).children(".arrow-down").first().detach().wrap("<div>").parent().html();
     var secondHeaderHtml = $(clonedElement).find("div.node h2").addClass("heading2").detach().wrap("<div>").parent().html();
-    var image = $(clonedElement).find("div.node img").parent().detach().wrap("<div>").parent().html();
+    $(clonedElement).find("div.node img.vimeo-thumbnail").addClass("image-left").css("width","100px");
+    var image = $(clonedElement).find("div.node img.image-left").parent().detach().wrap("<div>").parent().html();
     var rest = $(clonedElement).find("div.node").detach().wrap("<div>").parent().html();
     return (image!==undefined?image:"") + firstHeaderHtml + secondHeaderHtml + arrowUp + arrowDown + rest;
   }
