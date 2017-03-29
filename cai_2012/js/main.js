@@ -31,9 +31,9 @@
     var arrowUp = $(clonedElement).children(".arrow-up").first().detach().wrap("<div>").parent().html();
     var arrowDown = $(clonedElement).children(".arrow-down").first().detach().wrap("<div>").parent().html();
     var secondHeaderHtml = $(clonedElement).find("div.node h2").addClass("heading2").detach().wrap("<div>").parent().html();
-    var imageLeft = $(clonedElement).find("div.node img.image-left").parent().detach().wrap("<div>").parent().html();
+    var image = $(clonedElement).find("div.node img").parent().detach().wrap("<div>").parent().html();
     var rest = $(clonedElement).find("div.node").detach().wrap("<div>").parent().html();
-    return (imageLeft!==undefined?imageLeft:"") + firstHeaderHtml + secondHeaderHtml + arrowUp + arrowDown + rest;
+    return (image!==undefined?image:"") + firstHeaderHtml + secondHeaderHtml + arrowUp + arrowDown + rest;
   }
 
   function getValueFromOptionList(optionText, selectElement) {
