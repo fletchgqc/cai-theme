@@ -287,8 +287,12 @@ span.image-right, span.image-left {
   width: 100% !important;
 }
 
-p img.image-right, p img.image-left, p img {
+p img.image-right, p img.image-left, p img, div.testimony-pics img {
   width: 100% !important;
   height: auto !important;
   margin: 0px !important;
+}
+
+iframe {
+  width: 100% !important;
 }
