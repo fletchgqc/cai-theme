@@ -20,6 +20,8 @@
         featuredTestimonyPositionElement.before("<div class='mobileFeatured'><div class='item'>" + treatedFeaturedItems($(".item:nth-child(1)")) + "</div></div>");
         featuredBibleStudyPositionElement.before("<div class='mobileFeatured'><div class='item'>" + treatedFeaturedItems($(".item:nth-child(2)")) + "</div></div>");
         featuredVideoPositionElement.before("<div class='mobileFeatured'><div class='item'>" + treatedFeaturedItems($(".item:nth-child(3)")) + "</div></div>");
+        $("div.mobileFeatured > div.item").append("<div class='mobileFeaturedExpandButton'></div>");
+        $(".arrow").css("left",((windowSize/2)-25)+"px");
       }
     }
   }
@@ -89,17 +91,28 @@
   }
 
   function addArrowListeners() {
-    $(".arrow-up").click(function() {
-      var parent = $(this).parent();
-      $(this).hide();
-      $(parent).find(".arrow-down").show();
-      $(parent).find(".field p").hide();
-    });
-    $(".arrow-down").click(function() {
+    var open = function() {
       var parent = $(this).parent();
       $(this).hide();
       $(parent).find(".arrow-up").show();
       $(parent).find(".field p").show();
+    };
+
+    var close = function() {
+      var parent = $(this).parent();
+      $(this).hide();
+      $(parent).find(".arrow-down").show();
+      $(parent).find(".field p").hide();
+    };
+
+    $(".arrow-up").click(close);
+    $(".arrow-down").click(open);
+    $(".mobileFeaturedExpandButton").click(function() { 
+      if($(this).parent().children(".arrow-up").css("display") == "none") {
+        $(this).parent().children(".arrow-down").click();
+      } else {
+        $(this).parent().children(".arrow-up").click();
+      }
     });
   }
 
