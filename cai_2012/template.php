@@ -136,8 +136,7 @@ function cai_2012_vimeo_thumbnail($node, $node_url) {
       return '';
     }
     $vimeo_id = $vimeo_items[0]['value'];
-    $video_json = file_get_contents('https://vimeo.com/api/oembed.json?url=https%3A//vimeo.com/' . $vimeo_id);
-    $video = json_decode($video_json);
+    $video = cai_2012_get_video_properties_from_vimeo($vimeo_id);
 
     $thumbnail_markup = '<img class="vimeo-thumbnail" src="' . $video->thumbnail_url . '">';
     if ($node_url) {
@@ -145,6 +144,24 @@ function cai_2012_vimeo_thumbnail($node, $node_url) {
     } else {
       return $thumbnail_markup;
     }
+}
+
+/**
+ * Uses the Vimeo "oembed API" to get the video details.
+ * 
+ * Slightly complicated because because for videos with domain-level-privacy, Vimeo requires a Referer header before they send all the details.
+ */
+function cai_2012_get_video_properties_from_vimeo($vimeo_id) {
+  $opts = array(
+    'http'=>array(
+      'method'=>"GET",
+      'header'=>"Referer: http://www.cai.org\r\n"
+    )
+  );
+
+  $context = stream_context_create($opts);
+  $video_json = file_get_contents('https://vimeo.com/api/oembed.json?url=https:%2F%2Fvimeo.com%2F' . $vimeo_id, false, $context);
+  return json_decode($video_json);
 }
 
 /**
